@@ -1,16 +1,19 @@
 # flash-multiple-esp-devices
 
-## Setup Steps
+## Setup Instructions:
 
-##### Step 1: Install Python dependencies
+#### Step 1: Install Python dependencies
 + pip install -r requirements.txt
 
 
-##### Step 2: Create config.json
-+ Add the 'bin_file' value 
-  + Use the .bin file name and add it to the directory
-+ Add the 'friendly_name' value in config.json
-  + This may be the prefix you'd use in a Device Name
+#### Step 2: Add your .bin file
++ Add your .bin file to the current directory
+
+
+#### Step 3: config.json
++ Create a config.json file in the current directory
++ Add the bin file's location under 'bin_file'
++ Add your 'friendly_name', used as prefix in Device Name
 + Example
     ```
     {
@@ -20,21 +23,17 @@
     ```
 
 
-##### Step 3: Add your .bin file
-+ As stated above don't forget to add your .bin file to the directory
+## Running Script:
 
-
-## Running Script
-
+#### This File takes the COM port you'd like to flash as a command line argument
 ```
 python flash_once.py COM3
 ```
-+ This File takes the COM port as a command line argument to flash
 
+#### This File runs a thread for every COM port available and atttempts to flash the device using the flash_once.py script which uses esptool.py
 ```
 python flash_loop.py
 ```
-+ This File runs a thread for every COM port available and atttempts to flash the device using the flash_once.py script which uses esptool.py
 
 
 ## esptool.py - Modifications
